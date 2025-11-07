@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.log
+Input_Output/datasets/
+Input_Output/checkpoints/
+Input_Output/results/
+src/toolboxes/learning3d/checkpoints/
+*.t7
+*.pth
+*.pt
+*.hdf5
+*.npz
+.DS_Store
+.vscode/
+.idea/
