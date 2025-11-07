@@ -1,0 +1,11 @@
+# ninja log v5
+65	30101	6860611496837547	C:/Users/menth/learning3d/utils/lib/build/temp.win-amd64-cpython-39/Release/src/pointnet2_api.obj	7c5010e1ca801f7e
+7	50729	6860611702835012	C:/Users/menth/learning3d/utils/lib/build/temp.win-amd64-cpython-39/Release/src/ball_query_gpu.obj	16008b0fb293e11e
+57	50866	6860611703304415	C:/Users/menth/learning3d/utils/lib/build/temp.win-amd64-cpython-39/Release/src/interpolate_gpu.obj	3076988fb86752a6
+35	50899	6860611704308315	C:/Users/menth/learning3d/utils/lib/build/temp.win-amd64-cpython-39/Release/src/group_points_gpu.obj	248f5a05065cc2ec
+46	52507	6860611720731540	C:/Users/menth/learning3d/utils/lib/build/temp.win-amd64-cpython-39/Release/src/sampling_gpu.obj	1f522661815814db
+1051	34792	6877008367601558	C:/Users/menth/Documents/Python Scripts/Thesis/toolboxes/learning3d/utils/lib/build/temp.win-amd64-cpython-39/Release/src/pointnet2_api.obj	31d2d43fa371adf8
+1100	55967	6877008579206625	C:/Users/menth/Documents/Python Scripts/Thesis/toolboxes/learning3d/utils/lib/build/temp.win-amd64-cpython-39/Release/src/group_points_gpu.obj	bab946dc547b8490
+1069	56956	6877008588945824	C:/Users/menth/Documents/Python Scripts/Thesis/toolboxes/learning3d/utils/lib/build/temp.win-amd64-cpython-39/Release/src/ball_query_gpu.obj	f55b1e563a76ecc6
+1059	57244	6877008591789800	C:/Users/menth/Documents/Python Scripts/Thesis/toolboxes/learning3d/utils/lib/build/temp.win-amd64-cpython-39/Release/src/interpolate_gpu.obj	a8dce6a929ec3940
+2131	58697	6877008606502298	C:/Users/menth/Documents/Python Scripts/Thesis/toolboxes/learning3d/utils/lib/build/temp.win-amd64-cpython-39/Release/src/sampling_gpu.obj	df59ceb5bafdc8d8
