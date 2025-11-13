@@ -75,8 +75,13 @@ pip install -r requirements.txt
 ```
 
 ---
+##   Acknowledgments
+Thanks to the authors of the used registration methods!
+- [Open3D](http://www.open3d.org/) (ICP)
+- [Learning3D](https://github.com/vinits5/learning3d) (PointNetLK)
+  
 
-## Citation / Acknowledgment
+## Citation
 If you use this work, please cite the following project:
 
 **Mashayekhi, A.**, Denayer, M., Verstraten, T.  
