@@ -5,7 +5,7 @@ The workflow was implemented and validated as part of the XR-Twin project at Vri
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 All important files/
@@ -20,7 +20,7 @@ All important files/
 
 ---
 
-## ⚙️ Workflow Overview
+## Workflow Overview
 
 ### 1- Generate Random Meshes Poses
 Use `Creating_random_poses.py` to randomly place robot meshes in 3D space; using forward kinematics of the robot.  
