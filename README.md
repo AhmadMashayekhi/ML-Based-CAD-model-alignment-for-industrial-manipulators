@@ -11,8 +11,8 @@ The workflow was implemented and validated as part of the XR-Twin project at Vri
 All important files/
 ├── Creating_random_poses.py       # Step 1: Generate random transformations for CAD models using PyBullet (json)
 ├── Creating_data_sets.py          # Step 2: Create synthetic training/testing datasets (HDF5)
-├── main_train_code.py             # Step 3: Run main training loop (configures data & model)
-  ├── train_PointNetLK.py          # Step 4: Train the registration model (PointNetLK)
+├── Main_train_code.py             # Step 3: Run main training loop (configures data & model)
+  ├── Train_PointNetLK.py          # Step 4: Train the registration model (PointNetLK)
 ├── Test_PointNetLK_ICP.py         # Step 5: Evaluate registration and visualize results
 ├── Input_Output/                  # Contains datasets, checkpoints, and results (ignored in Git)
 └── src/                           # Source scripts and utilities
@@ -23,13 +23,16 @@ All important files/
 ## Workflow Overview
 
 ### 1- Generate Random Meshes Poses
-Use `Creating_random_poses.py` to randomly place robot meshes in 3D space; using forward kinematics of the robot.  
-This script creates JSON files containing the randomly generated transformations .
+Use `Creating_random_poses.py` to randomly place robot meshes in 3D space; using forward kinematics of the robot. This script creates JSON files containing the randomly generated transformations. 
+For this purpose, run:
+```bash
+python Creating_random_poses.py
+```
 
 ### 2- Create Synthetic Datasets
-Run `Creating_data_sets.py` to build paired datasets of CAD and PCD point clouds. All robot meshes, the CAD model and the ground transformation which relates them are stored in `.hdf5` format under:
-```
-Input_Output/datasets/
+Run `Creating_data_sets.py` to build paired datasets of CAD and PCD point clouds. All robot meshes, the CAD model and the ground transformation which relates them are stored in `.hdf5` format. Run:
+```bash
+python Creating_data_sets.py
 ```
 
 ### 3- Configure and Launch Training
@@ -39,7 +42,7 @@ It uses data prepared in Step 2 and calls the model definition from the Learning
 ### 4- Train the PointNetLK Model
 Run:
 ```bash
-python train_PointNetLK.py
+python Train_PointNetLK.py
 ```
 This script trains the PointNetLK model for rigid point cloud registration.
 Checkpoints are saved to:
