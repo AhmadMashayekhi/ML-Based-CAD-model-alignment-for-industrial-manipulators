@@ -22,21 +22,21 @@ All important files/
 
 ## ⚙️ Workflow Overview
 
-### 1️⃣ Generate Random Meshes Poses
+### 1- Generate Random Meshes Poses
 Use `Creating_random_poses.py` to randomly place robot meshes in 3D space; using forward kinematics of the robot.  
 This script creates JSON files containing the randomly generated transformations .
 
-### 2️⃣ Create Synthetic Datasets
+### 2- Create Synthetic Datasets
 Run `Creating_data_sets.py` to build paired datasets of CAD and PCD point clouds. All robot meshes, the CAD model and the ground transformation which relates them are stored in `.hdf5` format under:
 ```
 Input_Output/datasets/
 ```
 
-### 3️⃣ Configure and Launch Training
+### 3- Configure and Launch Training
 `main_train_code.py` defines the training configuration (epochs, learning rate, etc.).
 It uses data prepared in Step 2 and calls the model definition from the Learning3D toolbox.
 
-### 4️⃣ Train the PointNetLK Model
+### 4- Train the PointNetLK Model
 Run:
 ```bash
 python train_PointNetLK.py
@@ -47,7 +47,7 @@ Checkpoints are saved to:
 Input_Output/checkpoints/
 ```
 
-### 5️⃣ Evaluate and Visualize Results
+### 5- Evaluate and Visualize Results
 Finally, run:
 ```bash
 python Test_PointNetLK_ICP.py
@@ -57,7 +57,7 @@ It outputs JSON result files and optional 3D visualizations.
 
 ---
 
-## 🧠 Dependencies
+## Dependencies
 
 - Python ≥ 3.8  
 - PyTorch ≥ 1.10  
@@ -73,7 +73,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🧩 Citation / Acknowledgment
+## Citation / Acknowledgment
 If you use this work, please cite the following project:
 
 **Mashayekhi, A.**, Denayer, M., Verstraten, T.  
@@ -81,11 +81,6 @@ _“Automatic CAD–PCD Alignment of Industrial Manipulator Bases Using PointNet
 Vrije Universiteit Brussel (VUB), Flanders Make, 2025.
 
 ---
-
-## 🧱 Notes
-
-- Large files such as datasets and pretrained weights are ignored in this repository.  
-- Reviewers can request the complete dataset and checkpoints separately.
 
 ---
 
