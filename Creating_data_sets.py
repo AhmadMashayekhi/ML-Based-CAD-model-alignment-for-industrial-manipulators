@@ -1,22 +1,34 @@
 """
-=============================================================================
--------------------------------------INFO------------------------------------
-=============================================================================
+Author: Ahmad Mashayekhi
+Project: ML-Based CAD–PCD Alignment for Industrial Manipulators
 
-create train files
+Description
+-----------
+This script generates training datasets for PointNetLK/ICP by converting the
+synthetic robot poses (stored in Mesh_poses_*.json) into paired point clouds:
 
-Create synthetic training data based on available CAD models, with desidered parameters
+    • Template point cloud (robot links + under-base + hex plane + optional tools)
+    • Source point cloud (world-frame base, under-base, hex plane)
+    • Ground-truth 4×4 transformation (source → template)
 
-Inputs:
-    - CAD Files
-        reading from: /home/ahmadmashayekhi/Desktop/PCR/learning3d/PointNet_Train_Ahmad/CAD
-Output:
-    - .hdf5 file containing, for the different objects:
-        o Template
-        o Source (Randomly transformed)
-        o Ground Truth
-        saving to: /home/ahmadmashayekhi/Desktop/PCR/learning3d/C:/Users/menth/Documents/Python Scripts/Thesis/h5_files/output/files_test
+It supports:
+    • Optional tools on the hex plane
+    • Hex-plane partialization (vertical cutting plane)
+    • Noise injection
+    • World-frame and centered-frame visualization in Open3D
+
+Output
+------
+An HDF5 dataset saved in ./Input_Output/ containing:
+    template_final : (N, P, 3)
+    source_final   : (N, S, 3)
+    gt_final       : (N, 4, 4)
+
+Run
+---
+python create_training_dataset.py
 """
+
 
 """
 =============================================================================
@@ -33,7 +45,7 @@ from sklearn.utils import shuffle
 import time
 # from pathlib import Path
 
-import h5_writer_Ahmad as w
+import h5_writer_new as w
 # import h5_files.file_reader as r
 import json
 from scipy.spatial.transform import Rotation as R
@@ -49,7 +61,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 """
 #  baked STLs and JSON of random poses ===
 BAKED_STL_DIR = os.path.join(current_dir, "Input_Output", "baked_stl")
-POSES_JSON    = os.path.join(current_dir, "Input_Output", "Mesh_poses_H2017_2000IT_angle_30_radius_100.json")
+POSES_JSON    = os.path.join(current_dir, "Input_Output", "Mesh_poses_H2017_400IT_angle_30_radius_100.json")
 
 BASE_MESH_NAME = "H2017_0_0"   # template object
 
@@ -82,7 +94,7 @@ PLANE_Z_OFFSET        = -0.34   # place the plane under the under_base
 
 # --- preview controls ---
 VIS_IN_OPEN3D = True
-VIS_N_SAMPLES = 10
+VIS_N_SAMPLES = 1
 
 # NEW: world-frame visualization flags
 SHOW_WORLD_AXES = True          # <— set True to preview world axes

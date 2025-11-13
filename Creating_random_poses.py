@@ -1,3 +1,37 @@
+"""
+Author: Ahmad Mashayekhi
+Project: ML-Based CAD–PCD Alignment for Industrial Manipulators
+
+Description
+-----------
+Generates synthetic ground-truth poses for the Doosan H2017 robot using PyBullet.
+For each randomly sampled configuration, the script:
+
+  • Samples a random base translation and rotation
+  • Samples random joint angles within reduced limits
+  • Computes the world-frame pose of every visual mesh in the URDF
+  • Stores the base 4×4 transform, joint angles, and mesh poses
+
+The script rewrites the URDF so all <mesh> paths point to the local mesh folder
+("Input_Output/Doosan H2017 Meshes") and optionally visualizes samples in PyBullet.
+
+Output
+------
+A JSON file written to ./Input_Output/ containing:
+  • Base transform
+  • Joint angles (deg)
+  • World poses of all meshes
+  • Sampling ranges and metadata
+
+Usage
+-----
+python create_random_robot_poses.py
+
+Requirements
+------------
+numpy, scipy, pybullet, tqdm
+"""
+
 import os, json, numpy as np
 import pybullet as p
 import pybullet_data

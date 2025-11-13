@@ -1,19 +1,29 @@
 """
-=============================================================================
--------------------------------------INFO------------------------------------
-=============================================================================
+Author: Ahmad Mashayekhi
+Project: ML-Based CAD–PCD Alignment for Industrial Manipulators
 
+Description
+-----------
+Launcher script for training PointNetLK with different initialization modes.
+It wraps `_train.train_PointNetLK.main()` and configures:
 
+    • Training from scratch
+    • Resuming from a previous PointNetLK checkpoint
+    • Transfer learning from a pretrained PointNet backbone
 
-main train
+It also limits BLAS / PyTorch CPU threads to reduce CPU temperature.
 
-Trains selected method (RPMNet, PointNetLK, PRNet, ROPNet)
+Usage
+-----
+Set exactly ONE of:
+    Train_from_scratch
+    Train_from_full_previous_PointNetLK
+    Train_from_backbone_PointNet
 
-Credits: 
-    PointNetLK, RPMNet, ROPNet & PRNet Code by vinits5 as part of the Learning3D library 
-    Link: https://github.com/vinits5/learning3d#use-your-own-data
-
+Then run:
+    python main_train_code.py
 """
+
 
 """
 =============================================================================

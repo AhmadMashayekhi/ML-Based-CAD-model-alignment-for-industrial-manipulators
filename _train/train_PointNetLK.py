@@ -1,19 +1,24 @@
 """
- 3 / 12
- no backbone used
- using Adam optimizer with weight decay 
- 2000 data for training
- 200 data for testing   
- 
- K_feat = 0.0
- 
- # --- One Adam over ALL params => LK LR == FEAT LR always
-optimizer = torch.optim.Adam(
-    model.parameters(), lr=BASE_LR, weight_decay=1e-4, betas=(0.9, 0.999)
-)
-best_test_frob = float('inf')
- 
+Author: Ahmad Mashayekhi
+Project: ML-Based CAD–PCD Alignment for Industrial Manipulators
+
+Description
+-----------
+Training script for PointNetLK on custom HDF5 registration datasets.
+It:
+
+  • Loads train/test HDF5 files from ../Input_Output
+  • Builds DataLoaders using UserData('registration', ...)
+  • Constructs a PointNet backbone + PointNetLK registration network
+  • Optionally loads pretrained PointNet weights or resumes from a checkpoint
+  • Monitors thermal limits (CPU/GPU) and frees GPU cache when needed
+  • Logs to TensorBoard, saves best/latest checkpoints, and plots live losses
+
+Usage
+-----
+python _train/train_PointNetLK.py --exp_name exp_pnlk [--resume PATH] [--pretrained PATH]
 """
+
 
 
 """
@@ -565,7 +570,7 @@ def options():
     # settings for on training
     parser.add_argument('--seed', type=int, default=1234)
     parser.add_argument('-j', '--workers', default=1, type=int, metavar='N', help='number of data loading workers (default: 4)')
-    parser.add_argument('-b', '--batch_size', default=30, type=int, metavar='N', help='mini-batch size (default: 32)')
+    parser.add_argument('-b', '--batch_size', default=10, type=int, metavar='N', help='mini-batch size (default: 32)')
     parser.add_argument('--epochs', default=1, type=int, metavar='N', help='number of total epochs to run')
     parser.add_argument('--start_epoch', default=0, type=int,    metavar='N', help='manual epoch number (useful on restarts)')
     parser.add_argument('--optimizer', default='Adam', choices=['Adam', 'SGD'], metavar='METHOD', help='name of an optimizer (default: Adam)')

@@ -1,3 +1,27 @@
+"""
+Author: Ahmad Mashayekhi
+Project: ML-Based CAD–PCD Alignment for Industrial Manipulators
+
+Description
+-----------
+End-to-end driver script for running the CAD–PCD alignment experiment on a
+selected robot base (Part_name). It:
+
+  • Loads ground-truth JSON for the chosen robot from Input_Output/datasets/ground_truth
+  • Runs a single PointNetLK registration experiment (run_one_experiment)
+  • Visualizes the initial alignment result
+  • Runs an ICP-based refinement step (run_refinement)
+  • Visualizes the refined alignment result from Input_Output/results/PointNetLK_refined/refinement
+
+Usage
+-----
+Set Part_name to one of:
+    "Doosan_1", "Doosan_2", "Fanuc_1", "Fanuc_2", "Stabuli", "Universal_Robots"
+then run:
+    python main_run_experiment.py
+"""
+
+
 import os
 import json
 import numpy as np
